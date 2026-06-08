@@ -17,19 +17,22 @@ body{
     min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+    padding:40px 0;
     background:linear-gradient(135deg,#8B0000,#ff4500,#ffd700);
-    overflow:hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 /* Achtergrond-effect */
 body::before{
     content:'';
-    position:absolute;
+    position:fixed;
     width:600px;
     height:600px;
     background:radial-gradient(circle,#ffd70055,transparent 70%);
     animation:pulse 5s infinite;
+    pointer-events:none;
 }
 
 @keyframes pulse{
@@ -130,9 +133,11 @@ button:hover{
     <div class="logo">🔒</div>
 
     <h1>GEHEIME PAGINA</h1>
+
     <p class="subtitle">
         Voer het wachtwoord in om toegang te krijgen.
-        Gemaakt door: Abel | Wachtwoord nodig?? Krijg je lekker nie!! | Oké, kleine hint: Pinda's
+        Gemaakt door: Abel | Wachtwoord nodig?? Krijg je lekker nie!! |
+        Oké, kleine hint: Pinda's
     </p>
 
     <input
@@ -150,12 +155,29 @@ button:hover{
     <div class="secret" id="secretContent">
         <h2>Toegang Verleend! WELKOM!!</h2>
         <br>
+
         <p>
             Hoi, je hebt het wachtwoord geraden... Cool hoor...
         </p>
+
         <br>
+
         <p>
             Alleen gebruikers met het juiste wachtwoord kunnen deze inhoud bekijken.
+        </p>
+
+        <br>
+
+        <p>
+            Deze pagina ondersteunt nu scrollen. Voeg hier gerust veel meer tekst,
+            afbeeldingen, opdrachten of geheime informatie toe.
+        </p>
+
+        <br>
+
+        <p>
+            Als deze inhoud langer wordt dan het scherm, verschijnt automatisch een
+            verticale scrollbar zodat alles bereikbaar blijft.
         </p>
     </div>
 </div>
