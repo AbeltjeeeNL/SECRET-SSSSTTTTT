@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geheime Pagina</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#8B0000,#ff4500,#ffd700);
+    overflow:hidden;
+}
+
+/* Achtergrond-effect */
+body::before{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#ffd70055,transparent 70%);
+    animation:pulse 5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:420px;
+    max-width:90%;
+    padding:40px;
+    text-align:center;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(12px);
+    border:2px solid rgba(255,215,0,0.4);
+    border-radius:25px;
+    box-shadow:
+        0 0 25px rgba(255,215,0,0.3),
+        0 0 60px rgba(255,69,0,0.25);
+}
+
+.logo{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+h1{
+    color:#ffd700;
+    margin-bottom:10px;
+    letter-spacing:2px;
+}
+
+.subtitle{
+    color:white;
+    opacity:0.85;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    margin-bottom:15px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    font-size:1rem;
+}
+
+input::placeholder{
+    color:#ddd;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#ff0000,#ffd700);
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(255,215,0,0.7);
+}
+
+#message{
+    margin-top:20px;
+    font-weight:bold;
+    color:white;
+}
+
+.secret{
+    display:none;
+    margin-top:25px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,215,0,0.15);
+    color:#fff;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">🔒</div>
+
+    <h1>GEHEIME PAGINA</h1>
+    <p class="subtitle">
+        Voer het wachtwoord in om toegang te krijgen.
+    </p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Wachtwoord"
+    >
+
+    <button onclick="checkPassword()">
+        TOEGANG VERLENEN
+    </button>
+
+    <div id="message"></div>
+
+    <div class="secret" id="secretContent">
+        <h2>🎉 Toegang Verleend!</h2>
+        <br>
+        <p>
+            Welkom op de geheime pagina.
+        </p>
+        <br>
+        <p>
+            Alleen gebruikers met het juiste wachtwoord kunnen deze inhoud bekijken.
+        </p>
+    </div>
+</div>
+
+<script>
+function checkPassword() {
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+    const secret = document.getElementById("secretContent");
+
+    if (password === "Pindakaas") {
+        message.innerHTML = "✅ Correct wachtwoord!";
+        message.style.color = "#7CFC00";
+        secret.style.display = "block";
+    } else {
+        message.innerHTML = "❌ Verkeerd wachtwoord!";
+        message.style.color = "#ff4d4d";
+        secret.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
